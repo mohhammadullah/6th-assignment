@@ -15,20 +15,19 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-50 w-full border-b border-[#2A2A2A] bg-[#111111] px-4 text-white sm:px-6">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
-
         {/* LEFT - Logo */}
-      <Link href="/">
-        <div className="flex min-w-0 items-center gap-2">
-          <Image
-            src={logo}
-            alt="FitLog Logo"
-            width={28}
-            height={28}
-            className="h-7 w-7 object-contain"
-          />
-          <span className="text-sm font-bold tracking-wide">FITLOG</span>
-        </div>
-      </Link>
+        <Link href="/">
+          <div className="flex min-w-0 items-center gap-2">
+            <Image
+              src={logo}
+              alt="FitLog Logo"
+              width={28}
+              height={28}
+              className="h-7 w-7 object-contain"
+            />
+            <span className="text-sm font-bold tracking-wide">FITLOG</span>
+          </div>
+        </Link>
         {/* CENTER - Navigation */}
         <div className="hidden items-center gap-1 rounded-full border border-[#242424] bg-[#181818] p-1 sm:flex">
           <Link
@@ -56,7 +55,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-1.5 text-xs text-gray-400">
             <span>Saved</span>
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C2F800] text-[10px] font-bold text-black">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#2A2A2A] bg-[#1A1D21] text-[10px] font-bold text-white">
               {savedPlanCount}
             </span>
           </div>
@@ -78,7 +77,6 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-
       </div>
     </div>
   );
