@@ -28,18 +28,18 @@ const Navbar = () => {
         <div className="hidden sm:flex items-center gap-1 bg-[#181818] rounded-full p-1 border border-[#242424]">
 
           <Link
-            href="#workouts"
+            href="/"
             className="px-4 py-1.5 rounded-full text-xs font-medium bg-[#C2F800] text-black transition-all duration-200"
           >
             Workouts
           </Link>
 
-          <a
-            href="#plan"
+          <Link
+            href="/plan"
             className="px-4 py-1.5 rounded-full text-xs font-medium text-[#8B8B8B] hover:text-white transition-colors"
           >
             My Plan
-          </a>
+          </Link>
 
         </div>
 

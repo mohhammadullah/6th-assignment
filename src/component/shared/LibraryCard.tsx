@@ -8,7 +8,7 @@ interface ILibraryProps {
 }
 const LibraryCard = ({ library }:ILibraryProps ) => {
   return (
-  <Link href={`/library/${library.id}`}>
+  <Link  href={`/fit/${library.id}`}>
     <div className="group overflow-hidden rounded-xl border border-[#292D33] bg-[#15171C] text-white transition-all duration-300 hover:-translate-y-1 hover:border-[#C2F800]">
 
       {/* Image */}
