@@ -1,4 +1,5 @@
 
+import AddButton from "@/component/libraryDetails/addButton";
 import { ILibrary } from "@/types/library.type";
 import Image from "next/image";
 import React from "react";
@@ -203,9 +204,7 @@ const ILibraryDetailsPage = async ({
             {/* ================= BUTTONS ================= */}
             <div className="mt-7 flex flex-wrap gap-3 xl:mt-8">
 
-              <button className="btn h-10 min-h-10 rounded-lg border-none bg-[#C2F800] px-5 text-xs font-bold text-black hover:bg-[#D4FF3D]">
-                ＋ Add to today&apos;s plan
-              </button>
+              <AddButton libraryData={libraryData} />
 
               <button className="btn h-10 min-h-10 rounded-lg border border-[#30353D] bg-transparent px-5 text-xs text-gray-300 hover:bg-[#181B20]">
                 ♡ Save for later
