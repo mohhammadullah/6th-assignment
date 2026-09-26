@@ -3,6 +3,7 @@
 import { LibraryContext } from "@/context/LibraryContext";
 import { ILibrary } from "@/types/library.type";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 
 const AddButton = ({ libraryData }: { libraryData: ILibrary }) => {
   const context = useContext(LibraryContext);
@@ -12,26 +13,30 @@ const AddButton = ({ libraryData }: { libraryData: ILibrary }) => {
   }
 
   const { todayPlan, setTodayPlan } = context;
+  const isAlreadyAdded = todayPlan.some((item) => item.id === libraryData.id);
 
-  const handleAddToTodayPlan = () => {
-    const alreadyAdded = todayPlan.some(
-      (item) => item.id === libraryData.id
-    );
+const handleAddToTodayPlan = () => {
+  if (isAlreadyAdded) {
+    toast.info("Already added to today's plan!");
+    return;
+  }
 
-    if (alreadyAdded) {
-      return;
-    }
-
-    setTodayPlan((prev) => [...prev, libraryData]);
-  };
+  setTodayPlan((prev) => [...prev, libraryData]);
+  toast.success(`${libraryData.name || "Workout"} added to today's plan!`);
+};
 
   return (
-    <button
-      className="btn h-10 min-h-10 rounded-lg border-none bg-[#C2F800] px-5 text-xs font-bold text-black hover:bg-[#D4FF3D]"
-      onClick={handleAddToTodayPlan}
-    >
-      ＋ Add to today's plan
-    </button>
+<button
+  disabled={isAlreadyAdded}
+  className={`btn h-10 min-h-10 rounded-lg border-none px-5 text-xs font-bold transition-all ${
+    isAlreadyAdded
+      ? "bg-[#252525] text-gray-400 cursor-not-allowed border border-[#333]"
+      : "bg-[#C2F800] text-black hover:bg-[#D4FF3D]"
+  }`}
+  onClick={handleAddToTodayPlan}
+>
+  {isAlreadyAdded ? "✓ Added to plan" : "＋ Add to today's plan"}
+</button>
   );
 };
 

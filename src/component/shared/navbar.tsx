@@ -17,6 +17,7 @@ const Navbar = () => {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
 
         {/* LEFT - Logo */}
+      <Link href="/">
         <div className="flex min-w-0 items-center gap-2">
           <Image
             src={logo}
@@ -27,7 +28,7 @@ const Navbar = () => {
           />
           <span className="text-sm font-bold tracking-wide">FITLOG</span>
         </div>
-
+      </Link>
         {/* CENTER - Navigation */}
         <div className="hidden items-center gap-1 rounded-full border border-[#242424] bg-[#181818] p-1 sm:flex">
           <Link

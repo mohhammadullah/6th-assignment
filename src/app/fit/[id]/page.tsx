@@ -3,7 +3,7 @@ import AddButton from "@/component/libraryDetails/addButton";
 import { ILibrary } from "@/types/library.type";
 import Image from "next/image";
 import React from "react";
-
+import SaveButton from "@/component/libraryDetails/saveButton";
 interface ILibraryDetailsPageProps {
   params: Promise<{
     id: string;
@@ -206,10 +206,7 @@ const ILibraryDetailsPage = async ({
 
               <AddButton libraryData={libraryData} />
 
-              <button className="btn h-10 min-h-10 rounded-lg border border-[#30353D] bg-transparent px-5 text-xs text-gray-300 hover:bg-[#181B20]">
-                ♡ Save for later
-              </button>
-
+              <SaveButton libraryData={libraryData} />
             </div>
 
           </div>
