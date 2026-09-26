@@ -1,9 +1,15 @@
-
+"use client";
 import Image from "next/image";
 import React from "react";
 import banner from "@/assets/banner.png";
 
 const Banner = () => {
+  const scrollToLibrary = () => {
+  const section = document.getElementById("library");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center bg-[#1A1A1A] text-white p-6 sm:p-8 md:p-10 lg:p-14 m-6 rounded-2xl">
 
@@ -26,10 +32,26 @@ const Banner = () => {
         </h2>
 
         <div className="pt-2 flex justify-center md:justify-start">
-          <button className="btn h-14 min-h-14 px-7 sm:px-8 rounded-xl bg-[#C2F800] text-black border-none font-extrabold text-sm tracking-wider hover:bg-[#d4ff3d] hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(194,248,0,0.2)]">
-            BROWSE WORKOUTS
-                 
-          </button>
+          <button
+  onClick={scrollToLibrary}
+  className="btn h-14 min-h-14 px-7 sm:px-8 rounded-xl bg-[#C2F800] text-black border-none font-extrabold text-sm tracking-wider hover:bg-[#d4ff3d] hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(194,248,0,0.2)] inline-flex items-center gap-2"
+>
+  <span>BROWSE WORKOUTS</span>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={2.5}
+    stroke="currentColor"
+    className="w-5 h-5"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+    />
+  </svg>
+</button>
         </div>
       </div>
 

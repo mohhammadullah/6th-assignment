@@ -18,7 +18,7 @@ const Libraby = async () => {
   const libraryData = await getLibraby();
 
   return (
-    <section className="container mx-auto  px-4 py-10">
+    <section id="library" className=" container mx-auto  px-4 py-10">
 
       {/* Heading */}
     
