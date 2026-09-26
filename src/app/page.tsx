@@ -1,9 +1,11 @@
+import Banner from '@/component/homepage/Banner';
 import React from 'react';
-
+import Library from '@/component/homepage/Libraby';
 const page = () => {
   return (
     <div>
-      <h1>HOme page</h1>
+    <Banner></Banner>
+    <Library></Library>
     </div>
   );
 };

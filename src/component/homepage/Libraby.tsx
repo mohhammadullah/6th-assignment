@@ -1,8 +1,7 @@
 import React from "react";
-import WorkoutsPage from "../../app/Workouts/page";
+import LibraryCard from '@/component/shared/LibraryCard'
 import { ILibrary } from "@/types/library.type";
 
-const LibraryCard = WorkoutsPage as React.ComponentType<{ library: ILibrary }>;
 
 
 const getLibraby = async () => {

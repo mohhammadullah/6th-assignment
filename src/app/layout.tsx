@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
        <Navbar></Navbar>
         {children}</body>
-        <h2 className="font-bold text-4xl bg-amber-500 text-center">footer</h2>
+        {/* <h2 className="font-bold text-4xl bg-amber-500 text-center">footer</h2> */}
     </html>
   );
 }
