@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <LibraryProvider>
           <Navbar></Navbar>
           {children}
-          <Footer />
+          <Footer></Footer>
           <ToastContainer theme="dark" position="top-right" autoClose={2500} />
         </LibraryProvider>
       </body>

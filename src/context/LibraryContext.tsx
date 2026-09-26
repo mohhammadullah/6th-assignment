@@ -15,9 +15,26 @@ export const LibraryContext = createContext<LibraryContextType | undefined>(
 );
 
 const LibraryProvider = ({ children }: { children: React.ReactNode }) => {
-  const [todayPlan, setTodayPlan] = useState<ILibrary[]>([]);
-  const [savedPlan, setSavedPlan] = useState<ILibrary[]>([]);
+  const readPlan = (key: string): ILibrary[] => {
+    if (typeof window === "undefined") return [];
 
+    const storedPlan = localStorage.getItem(key);
+    if (!storedPlan) return [];
+
+    try {
+      return JSON.parse(storedPlan) as ILibrary[];
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  };
+
+  const [todayPlan, setTodayPlan] = useState<ILibrary[]>(() =>
+    readPlan("fitlog_todayPlan")
+  );
+  const [savedPlan, setSavedPlan] = useState<ILibrary[]>(() =>
+    readPlan("fitlog_savedPlan")
+  );
   const sharedState = {
     todayPlan,
     setTodayPlan,
