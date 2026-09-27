@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "react-toastify";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ILibrary } from "@/types/library.type";
@@ -9,12 +9,14 @@ import { ILibrary } from "@/types/library.type";
 interface PlanCardProps {
   item: ILibrary;
   onRemove: (id: string | number) => void;
+  showDone?: boolean;
 }
 
-const PlanCard = ({ item, onRemove }: PlanCardProps) => {
+const PlanCard = ({ item, onRemove, showDone = true }: PlanCardProps) => {
+  const [completed, setCompleted] = useState(false);
   // Mark as Done
   const handleComplete = () => {
-    onRemove(item.id);
+    setCompleted(true);
 
     toast.success(`${item.name || "Workout"} completed!`, {
       position: "top-right",
@@ -58,9 +60,7 @@ const PlanCard = ({ item, onRemove }: PlanCardProps) => {
             {item.name}
           </h2>
 
-          <p className="text-xs text-gray-400">
-            {item.equipment || "Workout"}
-          </p>
+          <p className="text-xs text-gray-400">{item.equipment || "Workout"}</p>
 
           <div className="mt-2 flex items-center gap-3 text-xs text-gray-300">
             <span className="flex items-center gap-1">
@@ -89,13 +89,22 @@ const PlanCard = ({ item, onRemove }: PlanCardProps) => {
         </Link>
 
         {/* Mark as Done */}
-        <button
-          onClick={handleComplete}
-          className="flex items-center gap-1.5 rounded-full bg-[#C2F800] px-4 py-2 text-xs font-bold text-black transition-all hover:bg-[#d4ff3d]"
-        >
-          ✓ Mark as Done
-        </button>
-
+        {showDone &&
+          (completed ? (
+            <button
+              disabled
+              className="flex items-center gap-1.5 rounded-full border border-[#C2F800] bg-[#1C2600] px-4 py-2 text-xs font-bold text-[#C2F800]"
+            >
+              ✓ Done
+            </button>
+          ) : (
+            <button
+              onClick={handleComplete}
+              className="flex items-center gap-1.5 rounded-full bg-[#C2F800] px-4 py-2 text-xs font-bold text-black transition-all hover:bg-[#d4ff3d]"
+            >
+              ✓ Mark as Done
+            </button>
+          ))}
         {/* Remove */}
         <button
           onClick={handleRemove}

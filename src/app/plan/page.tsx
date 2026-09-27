@@ -152,7 +152,7 @@ const Page = () => {
         ) : (
           <div className="flex flex-col gap-4">
             {sortedList.map((item) => (
-              <PlanCard key={item.id} item={item} onRemove={handleRemove} />
+              <PlanCard key={item.id} item={item} onRemove={handleRemove} showDone={activeTab === "today"} />
             ))}
           </div>
         )}
