@@ -29,23 +29,23 @@ const Navbar = () => {
           </div>
         </Link>
         {/* CENTER - Navigation */}
-        <div className="hidden items-center gap-1 rounded-full border border-[#242424] bg-[#181818] p-1 sm:flex">
+       <div className="flex items-center gap-0.5 rounded-full border border-[#242424] bg-[#181818] p-1 sm:gap-1">
           <Link
             href="/"
-            className="rounded-full bg-[#C2F800] px-4 py-1.5 text-xs font-medium text-black transition-all duration-200"
+            className="rounded-full bg-[#C2F800] px-2.5 py-1.5 text-[11px] font-medium text-black transition-all duration-200 sm:px-4 sm:text-xs"
           >
             Workouts
           </Link>
           <Link
             href="/plan"
-            className="rounded-full px-4 py-1.5 text-xs font-medium text-[#8B8B8B] transition-colors hover:text-white"
+           className="rounded-full px-2.5 py-1.5 text-[11px] font-medium text-[#8B8B8B] transition-colors hover:text-white sm:px-4 sm:text-xs"
           >
             My Plan
           </Link>
         </div>
 
         {/* RIGHT */}
-        <div className="flex items-center gap-4">
+       <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5 text-xs text-gray-400">
             <span>Plan</span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C2F800] text-[10px] font-bold text-black">
@@ -53,29 +53,14 @@ const Navbar = () => {
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs text-gray-400">
+          <div className="flex items-center gap-1 text-[10px] text-gray-400 sm:gap-1.5 sm:text-xs">
             <span>Saved</span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#2A2A2A] bg-[#1A1D21] text-[10px] font-bold text-white">
               {savedPlanCount}
             </span>
           </div>
 
-          <button className="p-2 text-gray-400 hover:text-white sm:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.8"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+         
         </div>
       </div>
     </div>
